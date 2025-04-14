@@ -1,0 +1,36 @@
+services:
+  trino:
+    hostname: dbt_test
+    container_name: dbt_trino
+    image: dbt_trino:testing
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # Mount your local project directory to container
+      # - ./:/usr/app/dbt_project
+      # Mount dbt profiles for persistence
+      - ./profiles:/root/.dbt
+      #auto mount dbt script from host to container
+      - /home/user_name/dbt/models:/usr/app/dbt/raffle_shop/models
+      - /home/user_name/dbt/seeds:/usr/app/dbt/raffle_shop/seeds
+      - /home/user_name/dbt/macros:/usr/app/dbt/raffle_shop/macros
+      #- ./models:/usr/app/dbt/raffle_shop/models
+    ports:
+      # Map container port to host
+      - "5080:5000"
+    networks:
+      - network_test
+    environment:
+      # set environment variables
+      - DBT_PROFILES_DIR=/root/.dbt
+    # Keep container running
+    tty: true
+    stdin_open: true
+    command: bash
+    # Optional: Restart policy
+    restart: unless-stopped
+networks:
+  network_test:
+    name: network_test
+    external: true
