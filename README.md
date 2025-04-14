@@ -1,2 +1,2 @@
-# OCB-trino
+# dbt-trino-template
 test
