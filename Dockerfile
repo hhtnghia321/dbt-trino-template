@@ -36,6 +36,7 @@ RUN pip install --no-cache-dir \
     flask \
     dbt-core \
     dbt-trino \
+    openlineage-dbt \
     psycopg2-binary
 
 # Create dbt profile directory
