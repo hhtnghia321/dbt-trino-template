@@ -18,7 +18,7 @@ services:
       #- ./models:/usr/app/dbt/raffle_shop/models
     ports:
       # Map container port to host
-      - "5080:5000"
+      - "5180:5000"
     networks:
       - network_test
     environment:
