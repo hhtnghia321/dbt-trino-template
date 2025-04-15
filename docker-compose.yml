@@ -24,6 +24,8 @@ services:
     environment:
       # set environment variables
       - DBT_PROFILES_DIR=/root/.dbt
+      - OPENLINEAGE_URL=http://marquez:5000
+      - OPENLINEAGE_NAMESPACE=dev
     # Keep container running
     tty: true
     stdin_open: true
