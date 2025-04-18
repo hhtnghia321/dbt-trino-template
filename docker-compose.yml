@@ -10,11 +10,11 @@ services:
       # Mount your local project directory to container
       # - ./:/usr/app/dbt_project
       # Mount dbt profiles for persistence
-      - ./dbt-trino-template/profiles:/root/.dbt
+      - ../dbt-trino-template/profiles:/root/.dbt
       #auto mount dbt script from host to container
-      - ./dbt-trino-template/models:/usr/app/dbt/raffle_shop/models
-      - ./dbt-trino-template/seeds:/usr/app/dbt/raffle_shop/seeds
-      - ./dbt-trino-template/macros:/usr/app/dbt/raffle_shop/macros
+      - ../dbt-trino-template/models:/usr/app/dbt/raffle_shop/models
+      - ../dbt-trino-template/seeds:/usr/app/dbt/raffle_shop/seeds
+      - ../dbt-trino-template/macros:/usr/app/dbt/raffle_shop/macros
       #- ./models:/usr/app/dbt/raffle_shop/models
     ports:
       # Map container port to host
