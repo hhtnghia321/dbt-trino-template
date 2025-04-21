@@ -45,7 +45,6 @@ RUN mkdir -p /root/.dbt
 # Set environment variables
 ENV DBT_PROFILES_DIR=/root/.dbt
 
-
 # Create project directory
 RUN mkdir -p /usr/app/dbt
 
@@ -57,6 +56,9 @@ RUN dbt init raffle_shop --skip-profile-setup
 
 # Expose a port if your app runs a server (optional)
 EXPOSE 5000
+
+# Add your custom tracer file
+COPY ./tracer/custom_dbt_tracer.py /app/custom_dbt_tracer.py
 
 # Set the default command (optional)
 # CMD ["bash"]
