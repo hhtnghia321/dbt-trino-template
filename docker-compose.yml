@@ -26,6 +26,7 @@ services:
       - DBT_PROFILES_DIR=/root/.dbt
       - OPENLINEAGE_URL=http://marquez-api:5000
       - OPENLINEAGE_NAMESPACE=dev
+      - OPENLINEAGE_DBTRUNNER_TRACER=custom_dbt_tracer.CustomDbtTracer
     # Keep container running
     tty: true
     stdin_open: true
