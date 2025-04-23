@@ -20,7 +20,8 @@ services:
       # Map container port to host
       - "5180:5000"
     networks:
-      - network_test
+      - network_test:
+          ipv4_address: 172.18.0.5
     environment:
       # set environment variables
       - DBT_PROFILES_DIR=/root/.dbt
